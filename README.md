@@ -1,77 +1,61 @@
-//![alt text](github_url_image?raw=true)to add image
 
 -   ## Wheather Image Recognition
-
+![alt text](https://github.com/Huzaifa-Nusairat/Weather_Image_Recognetion/blob/main/images/iStock-477110708%20(1).jpg?raw=true)
 prepared by:Huzaifa Nusairat
 
 -   ## problem overview
 
-Dataset contains 6862 images of different types of weather, it can be used to implement weather classification based on the photo.
+- Dataset contains 6862 images of different types of weather, it can be used to implement weather classification based on the photo.
 
-What is The objective of the project !
-
-How we can decrease the chances of getting this problem by some
-preventive measures !
+- The objective of the project is:
+Build a deep learning model to Recognize weather state.
 
 -   ## Solution process
 
 ### Discuss about The Data:
 
- 1- where you get your data set
+- I got the data set from kaggle Data sets site: Read Data.txt
 
-2- what your data set has
-
-3- how many features it has
-
-4- the explanation of the data set
-
-5- what kind of columns it says like:( Demographic, History, etc…)
+- Dataset contains 6862 images of different types of weather.
+- It has (11) classes ['rain', 'dew', 'frost', 'rainbow', 'snow', 'rime', 'sandstorm', 'hail', 'fogsmog', 'lightning', 'glaze'].
 
 ### Analyze The Data :
 
-what do you analyze like: (Heterogeneous population, Anomaly detection,
-Missing value treatment, create new variables upon mutual
-relation(feature engineering))
+- The Data is unbalanced, There is a discrepancy in the number of pictures per class, Most of the pictures are rime pictures, and the minority are rainbow pictures.
+![alt text](https://github.com/Huzaifa-Nusairat/Weather_Image_Recognetion/blob/main/images/eda.png?raw=true)
+
+- Some samples of pictures:
+![alt text](https://github.com/Huzaifa-Nusairat/Weather_Image_Recognetion/blob/main/images/pic1.png?raw=true)
+![alt text](https://github.com/Huzaifa-Nusairat/Weather_Image_Recognetion/blob/main/images/pic2.png?raw=true)
 
 ### Analytical approach:
 
-What kind of analytical approach did you use like:(supervised ML or
-unsupervised ML, etc...)
+- It is a supervised Machine Learning project.
 
-Model preparation:
+- First, I split Data into (train, val, test)
+![alt text](https://github.com/Huzaifa-Nusairat/Weather_Image_Recognetion/blob/main/images/split.png?raw=true)
 
-how you prepare the model like: (we teach the model on the training data
-set)
+- Then using resamplling techniques such as (albumentation laibrary to augmanted Data) make each class has the same number of images and tensorflow generator to create and label each part of Data sets.
+![alt text](https://github.com/Huzaifa-Nusairat/Weather_Image_Recognetion/blob/main/images/after_aug.png?raw=true)
 
-### Model validation:
+- Fed the training data set into some pre_traind models and found that Mobile_Net architecture has the best accuracy in testing data set.
+![alt text](https://github.com/Huzaifa-Nusairat/Weather_Image_Recognetion/blob/main/images/acc_loss.png?raw=true)
 
-1- how you validate the model!
+- Finally, analysing the error of Mobile_Net architecture after predicting test data set found the following result:
+![alt text](https://github.com/Huzaifa-Nusairat/Weather_Image_Recognetion/blob/main/images/error1.png?raw=true)
+![alt text](https://github.com/Huzaifa-Nusairat/Weather_Image_Recognetion/blob/main/images/error2.png?raw=true)
 
-2- how you can check the performance of the model !
+- Some samples of miss labeled images:
+![alt text](https://github.com/Huzaifa-Nusairat/Weather_Image_Recognetion/blob/main/images/error3.png?raw=true)
 
-3- how it is predicting !
 
 -   ## Models comparison
 
-How each model is performing on training data** **and testing data.
+- I tryed a CNN model (Three Conv layers with Dense layer contain 256 units and dropout regularization layer) and (3) pre_trained models ['Xception-Net', 'Mobile_Net', 'DenseNet201'].
+![alt text](https://github.com/Huzaifa-Nusairat/Weather_Image_Recognetion/blob/main/images/models.png?raw=true)
 
--   ## key finding
-
-It is the most important factor that influence through the problem and
-number them in order .
-
--   ## preventive measures
-
-You can discuss the preventive measure and what kind of preventive areas
-you can take to avoid the problem or reduce the disease or fraud
-detection.
 
 -   ## Recommendation
 
-Give recommendation upon your model prediction and explain your
-recommendations.
-
--   ## Potential benefits
-
-What kind of potential benefits are given (The sense of the business) it
-should be at least three.
+- Collect more images to get better model performance
+- Using other pre_traind models it could give more accuracy on testing data set
